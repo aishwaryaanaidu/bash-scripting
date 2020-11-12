@@ -5,4 +5,8 @@ temp="${access_token_object%\}}"
 temp="${temp%\"}"
 # Remove prefix
 access_token="${temp#\"}"
-echo $access_token
+# echo $access_token
+
+# New API request
+response1=$(curl -k --silent --header "Content-Type: application/json" "Authorization:$access_token" https://127.0.0.1:8008/zmc_service/servers/)
+echo $response1
